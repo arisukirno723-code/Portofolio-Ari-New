@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Ari Sukirno</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+        /* Palet Warna Merah Keren */
+        .text-accent { color: #e11d48; }
+        .bg-accent { background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%); }
+        
+        /* Gradient Overlay for Header */
+        .header-gradient {
+            background: radial-gradient(circle at top, rgba(225, 29, 72, 0.05) 0%, rgba(255, 255, 255, 1) 70%);
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(225, 29, 72, 0.2);
+            box-shadow: 0 20px 40px -15px rgba(225, 29, 72, 0.15);
+        }
+
+        /* Teks Gradasi */
+        .text-gradient {
+            background: linear-gradient(to right, #e11d48, #9f1239);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Avatar Animation Container */
+        .avatar-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        /* Lingkaran bercahaya di belakang avatar */
+        .avatar-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.2) 0%, rgba(225, 29, 72, 0) 70%);
+            border-radius: 50%;
+            animation: pulse-glow 3s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        /* Animasi melayang untuk avatar */
+        .avatar-image {
+            position: relative;
+            z-index: 10;
+            animation: float-avatar 4s infinite ease-in-out;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        @keyframes float-avatar {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        /* Decorative Badge Animation */
+        .badge-pop {
+            animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+
+        @keyframes pop {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- BAGIAN 1: HEADER (INTRO) -->
+    <header class="header-gradient pt-24 pb-20 px-5 text-center overflow-hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="avatar-container mb-10">
+                <!-- Efek Cahaya Belakang -->
+                <div class="avatar-glow"></div>
+                
+                <!-- Avatar Kartun/Anime SMA (Menggunakan SVG Robot/Avatar yang representatif) -->
+                <div class="avatar-image">
+                    <img 
+                        src="https://api.dicebear.com/7.x/adventurer/svg?seed=AriSukirno&backgroundColor=ffdfbf&hair=short01&hairColor=0e0e0e&clothing=shirt&clothingColor=f1f5f9" 
+                        alt="Avatar Kartun Ari" 
+                        class="w-full h-full"
+                    >
+                </div>
+
+                <!-- Badge Ikon dengan Animasi Pop -->
+                <div class="absolute bottom-2 right-4 bg-accent p-3 rounded-full shadow-lg border-4 border-white z-20 badge-pop">
+                    <i data-lucide="high-voltage" class="text-white w-5 h-5 fill-current"></i>
+                </div>
+            </div>
+
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
+                <span class="text-gradient uppercase">ARI SUKIRNO</span>
+            </h1>
+            <p class="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                Siswa <span class="font-bold text-gray-800">Kelas XII</span> yang punya mimpi besar dan selalu ingin belajar hal baru. 🚀
+            </p>
+
+            <!-- Tombol Aksi -->
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#tentang" class="bg-accent text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg shadow-rose-200 flex items-center gap-2">
+                    <i data-lucide="user" class="w-5 h-5"></i> Kenali Saya
+                </a>
+                <a href="#" class="bg-white border-2 border-gray-100 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:bg-gray-50 transition flex items-center gap-2">
+                    <i data-lucide="mail" class="w-5 h-5"></i> Kontak
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BAGIAN 2: STATS/INFO SINGKAT -->
+    <section id="tentang" class="py-16 px-5">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-8 rounded-3xl text-center">
+                <div class="w-12 h-12 bg-rose-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="graduation-cap" class="text-accent w-6 h-6"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2">Pendidikan</h3>
+                <p class="text-gray-500 text-sm">Sedang menempuh tahun terakhir di Sekolah Menengah Atas.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl text-center">
+                <div class="w-12 h-12 bg-rose-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="search" class="text-accent w-6 h-6"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2">Eksplorasi</h3>
+                <p class="text-gray-500 text-sm">Aktif mencari minat bakat di bidang teknologi dan kreatif.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl text-center">
+                <div class="w-12 h-12 bg-rose-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="target" class="text-accent w-6 h-6"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2">Visi</h3>
+                <p class="text-gray-500 text-sm">Berusaha memberikan dampak positif bagi lingkungan sekitar.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Inisialisasi Ikon Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+    <!-- BAGIAN 2: INFO UTAMA (RESPONSIVE GRID) -->
+    <section class="py-16 px-5 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            
+            <!-- Kolom A: Biodata -->
+            <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                <div class="flex items-center mb-8">
+                    <div class="p-3 bg-red-50 rounded-xl mr-4">
+                        <i data-lucide="user" class="text-accent"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Biodata</h2>
+                </div>
+                <ul class="space-y-6">
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 group-hover:bg-red-50 transition-colors">
+                            <i data-lucide="info" class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Nama</p>
+                            <p class="text-gray-700 font-semibold">Ari Sukirno</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 group-hover:bg-red-50 transition-colors">
+                            <i data-lucide="calendar" class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Tempat, Tanggal Lahir</p>
+                            <p class="text-gray-700 font-semibold">Jakarta, 17 April 2008</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 group-hover:bg-red-50 transition-colors">
+                            <i data-lucide="heart" class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Status</p>
+                            <p class="text-gray-700 font-semibold">Siswa Kelas XII</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 group-hover:bg-red-50 transition-colors">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Sekolahan</p>
+                            <p class="text-gray-700 font-semibold">SMA Negeri 1 Donorojo</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start group">
+                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 group-hover:bg-red-50 transition-colors">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Domisili</p>
+                            <p class="text-gray-700 font-semibold">Tulakan, Dukuh Krajan, Rt01/Rw01</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Kolom B: Pengalaman -->
+            <div class="glass-card p-8 md:p-10 rounded-[2rem] bg-gray-50/50">
+                <div class="flex items-center mb-8">
+                    <div class="p-3 bg-red-50 rounded-xl mr-4">
+                        <i data-lucide="award" class="text-accent"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Pengalaman</h2>
+                </div>
+                <div class="space-y-8">
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Anggota Divisi TIK</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Organisasi Siswa Intra Sekolah (2023-2024)</p>
+                        <p class="text-gray-500 text-sm">-Koordinator TIK All Event OSIS 23/24.</p>
+                        <p class="text-gray-500 text-sm">-Membuat 50+ Pamflate/Desain Serupa.</p>
+                        <p class="text-gray-500 text-sm">-Membuat All Feed Instagram OSIS 23/24.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Sekretaris</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Komisi Pemilihan Ketua OSIS (2024)</p>
+                        <p class="text-gray-500 text-sm">-Menyelesaikan Seluruh Administrasi Pemilihan Ketua OSIS.</p>
+                        <p class="text-gray-500 text-sm">-Melakukan Pendataan Calon Ketua OSIS.</p>
+                        <p class="text-gray-500 text-sm">-Melakukan Pendataan Peserta Pemilihan Ketua OSIS.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Anggota Divisi INKOM</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Forum OSIS Kab. Jepara (2024-2025)</p>
+                        <p class="text-gray-500 text-sm">-Koordinator INKOM di 3 Event besar.</p>
+                        <p class="text-gray-500 text-sm">-Koordinator Kewir di Event Duta OSIS Jepara 25.</p>
+                        <p class="text-gray-500 text-sm">-Membuat 30+ Pamflate/Desain Serupa.</p>
+                        <p class="text-gray-500 text-sm">-Membuat 10+ Feed Instagram FOSIS 25/26.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Koorinator Divisi TIK</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Dewan Ambalan (2024/2025)</p>
+                        <p class="text-gray-500 text-sm">-Koordinator TIK All Event Dewan Ambalan 24/25.</p>
+                        <p class="text-gray-500 text-sm">-Membuat 30+ Pamflate/Desain Serupa.</p>
+                        <p class="text-gray-500 text-sm">-Membuat All Feed Instagram Dewan Ambalan 24/25.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Koorinator Divisi TIK</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Dewan Wira (2024/2025)</p>
+                        <p class="text-gray-500 text-sm">-Koordinator TIK All Event Dewan Wira 24/25.</p>
+                        <p class="text-gray-500 text-sm">-Membuat 40+ Pamflate/Desain Serupa.</p>
+                        <p class="text-gray-500 text-sm">-Membuat All Feed Instagram Dewan Wira 24/25.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Koordinator Divisi KOMINFO</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Green Generation Jawa Tengah (2025/2027)</p>
+                        <p class="text-gray-500 text-sm">-Koordinator KOMINFO di 4 Event Green Generation 25/27.</p>
+                        <p class="text-gray-500 text-sm">-Membuat 20+ Pamflate/Desain Serupa.</p>
+                        <p class="text-gray-500 text-sm">-Ketua Projek GG SAPARESIK Keresidenan Pati 2025.</p>
+                        <p class="text-gray-500 text-sm">-Membuat All Feed Instagram Green Generation 25/27.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Sekretaris Umum</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Organisasi Siswa Intra Sekolah (2025-2026)</p>
+                        <p class="text-gray-500 text-sm">-Menyelesaikan Seluruh Administrasi OSIS 25/26.</p>
+                        <p class="text-gray-500 text-sm">-Menyelesaikan SP Program Kerja OSIS 25/26.</p>
+                        <p class="text-gray-500 text-sm">-Menyelesaikan LPJ OSIS 25/26.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Koordinator Divisi KOMINFO</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Ekstra Robotik Smansado (2024/2025)</p>
+                        <p class="text-gray-500 text-sm">-Membuat Feed Instagram Tentang Pengenalan Robotik 25/27.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Koordinator SMA</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Forum OSIS Kab. Jepara (2025-2026)</p>
+                        <p class="text-gray-500 text-sm">-Mengkoordinasikan Informasi Kepada Seluruh Ketua OSIS SMA/SMK.</p>
+                        <p class="text-gray-500 text-sm">-Mengkordinasi Anggota Fosara Bagian SMA.</p>
+                        <p class="text-gray-500 text-sm">-Ketua Kegiatan LDK SMA/SMK Jepara 25.</p>
+                        <p class="text-gray-500 text-sm">-Sekretaris Kegiatan Gerakan Peduli Pelajar Jepara 26.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Staff Divisi Generation Network</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Badan Pengurus Pusat Generasi Indonesia (2025)</p>
+                        <p class="text-gray-500 text-sm">-Menyelesaikan Seluruh Tugas dari Staff Divisi Generation Network.</p>
+                        <p class="text-gray-500 text-sm">-Menghubungi langsung Narasumber Untuk Kegiatan Pembekalan DGI.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Staff Divisi Public Relation</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">Generasi Anti Kekerasan (2025)</p>
+                        <p class="text-gray-500 text-sm">-Menyelesaikan Seluruh Tugas dari Staff Divisi Public Relation.</p>
+                        <p class="text-gray-500 text-sm">-Menghubungi langsung Narasumber Untuk Kegiatan GAK.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Ketua</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">PR IPNU Desa Tulakan 1 (2025-2027)</p>
+                        <p class="text-gray-500 text-sm">-Mengkoordinasikan Seluruh Kegiatan IPNU IPPNU.</p>
+                        <p class="text-gray-500 text-sm">-Melaksamakan Seluruh Program Kerja yang Direncanakan.</p>
+                        <p class="text-gray-500 text-sm">-Menjadi Delegasi Dalam DIKLATAMA 25.</p>
+                        <p class="text-gray-500 text-sm">-Menjadi Delegasi Dalam MAKESTA 26.</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-red-100">
+                        <div class="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1.5 shadow-[0_0_10px_rgba(225,29,72,0.4)]"></div>
+                        <h3 class="text-gray-900 font-bold mb-1 tracking-tight">Ketua Angkatan</h3>
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-widest">DILATAMA CBP-KPP VI (2025)</p>
+                        <p class="text-gray-500 text-sm">-Mengkoordinasikan Anggota Selama Kegiatan Diklatama.</p>
+                        <p class="text-gray-500 text-sm">-Mengkoordinasikan Berjalannya RTL 1,2,3.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-[10px] text-gray-400 font-black mb-4 uppercase tracking-[0.2em]">Keahlian Utama</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-white border border-gray-100 rounded-xl text-xs font-bold text-gray-600 shadow-sm">Canva</span>
+                            <span class="px-4 py-2 bg-white border border-gray-100 rounded-xl text-xs font-bold text-gray-600 shadow-sm">Pixellab</span>
+                            <span class="px-4 py-2 bg-white border border-gray-100 rounded-xl text-xs font-bold text-gray-600 shadow-sm">CapCut</span>
+                            <span class="px-4 py-2 bg-white border border-gray-100 rounded-xl text-xs font-bold text-gray-600 shadow-sm">Visual Studio Code</span>
+                            <span class="px-4 py-2 bg-white border border-gray-100 rounded-xl text-xs font-bold text-gray-600 shadow-sm">Sublim Teks</span>
+                            <span class="px-4 py-2 bg-white border border-gray-100 rounded-xl text-xs font-bold text-gray-600 shadow-sm">Word</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BAGIAN 3: SHOWCASE KREATIF -->
+    <section class="py-20 px-5 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 italic text-gray-800">Spesialis Desain <span class="text-accent">Canva</span> & Video Editing.</h2>
+            <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+        </div>
+
+        <html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Kreatif - White & Red Edition</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+        .text-accent { color: #e11d48; }
+        .bg-accent { background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%); }
+        
+        /* Glass Card Effect */
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Gradient Logo Decoration */
+        .logo-gradient-container {
+            background: radial-gradient(circle at center, rgba(225, 29, 72, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .animated-logo {
+            filter: drop-shadow(0 0 15px rgba(225, 29, 72, 0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <section class="py-16 px-5 max-w-6xl mx-auto space-y-10">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <!-- Kartu 1: Graphic Design (Canva) -->
+            <div class="glass-card rounded-[2.5rem] p-4 group">
+                <!-- Area Logo Bergradasi -->
+                <div class="logo-gradient-container rounded-3xl h-72 md:h-80 relative overflow-hidden bg-gray-50">
+                    <div class="animated-logo">
+                        <!-- SVG Logo Design -->
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="designGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#e11d48;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#9f1239;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="3" width="18" height="18" rx="2" y="3" stroke="url(#designGradient)" stroke-width="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" fill="url(#designGradient)"/>
+                            <path d="M21 15L16 10L5 21" stroke="url(#designGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-black text-gray-800 tracking-tight">Graphic Design</h3>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-bold text-accent px-2 py-0.5 bg-red-50 rounded-md border border-red-100 uppercase tracking-tighter">Canva</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Daftar 4 Link Design -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://www.instagram.com/p/DULc--kCXuY/?igsh=MWoxOTduYzZ6N2c3ZQ==" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Design #1</span>
+                            <i data-lucide="image" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/p/C99NM9uPDBi/?igsh=dmRiYWNzNzV0aWp2" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Design #2</span>
+                            <i data-lucide="image" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/p/DSUycg4icA0/?igsh=MTRucnhycmwxeWlqZA==" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Design #3</span>
+                            <i data-lucide="image" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/p/C_KWJLXvvHU/?igsh=MWwyc2pwN2xzNTE4MA==" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Design #4</span>
+                            <i data-lucide="image" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu 2: Motion Video -->
+            <div class="glass-card rounded-[2.5rem] p-4 group">
+                <!-- Area Logo Bergradasi -->
+                <div class="logo-gradient-container rounded-3xl h-72 md:h-80 relative overflow-hidden bg-gray-50">
+                    <div class="animated-logo">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="videoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#e11d48;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#9f1239;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#videoGradient)"/>
+                            <path d="M2 17L12 22L22 17" stroke="url(#videoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="url(#videoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-black text-gray-800 tracking-tight">Motion Video</h3>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-bold text-accent px-2 py-0.5 bg-red-50 rounded-md border border-red-100 uppercase tracking-tighter">Pro</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://www.instagram.com/reel/DNXwoInpJEI/?igsh=MWhobXY2NGcwbTl6MA==" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Reel: Terbaru</span>
+                            <i data-lucide="play" class="w-4 h-4 text-gray-300 group-hover:text-accent fill-current"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/reel/DUTIaPWCaDo/?igsh=eDIyMmYwbmNzbHJv" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Cinematic #1</span>
+                            <i data-lucide="clapperboard" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/reel/DJ3H8QeJokp/?igsh=MTN0MGlhMm83cW5hYw==" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Creative Edit #2</span>
+                            <i data-lucide="clapperboard" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/reel/DHp6G49xjCE/?igsh=MWs0c3g2MmwzanFxdA==" target="_blank" class="flex justify-between items-center p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-accent hover:bg-red-50 group transition-all">
+                            <span class="text-xs font-bold text-gray-600 group-hover:text-accent">Motion Story #3</span>
+                            <i data-lucide="clapperboard" class="w-4 h-4 text-gray-300 group-hover:text-accent"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+    <!-- BAGIAN 4: FOOTER (KONTAK & QUOTE) -->
+    <footer class="py-24 px-5 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Tabel Alamat (Borderless & Transparan) -->
+            <div class="mb-24 glass-card p-10 rounded-[2rem]">
+                <table class="w-full text-left border-collapse">
+                    <tbody>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-5 font-black text-accent text-[10px] uppercase tracking-widest w-1/3">Email</td>
+                            <td class="py-5 text-gray-600 font-medium">arisukirno723@emailanda.com</td>
+                        </tr>
+                        <tr class="border-b border-gray-50">
+                            <td class="py-5 font-black text-accent text-[10px] uppercase tracking-widest">No WhatsApp</td>
+                            <td class="py-5 text-gray-600 font-medium">0852 2820 9423</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 font-black text-accent text-[10px] uppercase tracking-widest">Lokasi</td>
+                            <td class="py-5 text-gray-600 font-medium">Donorojo, Jepara</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quotes Section -->
+            <div class="relative text-center py-10">
+                <div class="quote-bg relative z-10">
+                    <blockquote class="italic text-2xl md:text-3xl font-light text-gray-500 leading-tight">
+                        "Kreativitas adalah <span class="text-accent font-bold">kecerdasan</span> yang bersenang-senang."
+                    </blockquote>
+                    <p class="mt-6 text-[10px] tracking-[0.5em] uppercase text-gray-400 font-black">Albert Einstein</p>
+                </div>
+            </div>
+
+            <div class="mt-24 text-center">
+                <div class="flex justify-center gap-6 mb-8 text-gray-300">
+                    <i data-lucide="github" class="w-5 h-5 hover:text-accent cursor-pointer transition-colors"></i>
+                    <i data-lucide="twitter" class="w-5 h-5 hover:text-accent cursor-pointer transition-colors"></i>
+                    <i data-lucide="mail" class="w-5 h-5 hover:text-accent cursor-pointer transition-colors"></i>
+                </div>
+                <p class="text-gray-400 text-[10px] tracking-widest uppercase">&copy; 2025 Personal Portfolio • White & Red Edition</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
